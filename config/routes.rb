@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # get 'blogs/new'
 
   # get 'blogs/edit'
+  root to: 'blogs#index'
   resources :blogs do
   collection do
       post :confirm
