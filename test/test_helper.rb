@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+ENV['RAILS_ENV'] ||= 'test'
+>>>>>>> origin/master
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 

@@ -7,4 +7,8 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
+<<<<<<< HEAD
   channel_prefix: phase2_large_task_production
+=======
+  channel_prefix: task2_blog_function_production
+>>>>>>> origin/master

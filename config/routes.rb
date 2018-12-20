@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :kblos do
+=======
+  # get 'blogs/new'
+
+  # get 'blogs/edit'
+  root to: 'blogs#index'
+  resources :blogs do
+>>>>>>> origin/master
   collection do
       post :confirm
     end

@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "phase2_large_task",
+=======
+  "name": "task2_blog_function",
+>>>>>>> origin/master
   "private": true,
   "dependencies": {}
 }
