@@ -1,0 +1,17 @@
+<header>
+    <p><%= link_to "ホーム", kblos_path %></p>
+</header>
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @kblo, url: kblos_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+
+  <p>本文:<%= @kblo.content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @kblo, url: new_kblo_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.submit "もどる" %>
+<% end %>

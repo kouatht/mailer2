@@ -1,0 +1,2 @@
+class Kblo < ApplicationRecord
+end

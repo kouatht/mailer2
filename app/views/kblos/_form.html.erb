@@ -1,0 +1,9 @@
+<%= form_with(model: @kblo, local: true,url: choose_new_or_edit) do |form| %>
+ <div class="blog_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'つぶやき一覧画面に戻る', kblos_path %>

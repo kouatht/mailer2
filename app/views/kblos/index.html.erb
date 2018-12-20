@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>つぶやき</title>
+</head>
+<body>
+    <header class="home">
+        <p><%= link_to "ホーム", kblos_path %></p>
+    </header>
+    <div class="tw">
+        <%= link_to "つぶやく", new_kblo_path %>
+    </div>
+    
+    <div class="top">
+        <h1>あなたのつぶやき</h1>
+    </div>
+    <h3> つぶやき数 <%= @kblos.length %></h3>
+    
+    
+    <p><%= notice %></p>
+    
+    <table>
+      <tr>
+        <th>内容</th>
+      </tr>
+    
+    <% @kblos.each do |kblo| %>
+      <tr>
+        <td><%= kblo.content %></td>
+        <td><%= link_to '詳細を確認する', kblo_path(kblo.id) %></td>
+        <td><%= link_to "つぶやきを編集する", edit_kblo_path(kblo.id) %></td>
+        <td><%= link_to 'つぶやきを削除する', kblo_path(kblo.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></td>
+      </tr>
+    <% end %>
+    </table>
+
+</body>
+<footer>
+    <p class="footer">kblo</p>
+</footer>
