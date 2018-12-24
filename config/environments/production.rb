@@ -59,11 +59,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-<<<<<<< HEAD
   # config.active_job.queue_name_prefix = "phase2_large_task_#{Rails.env}"
-=======
-  # config.active_job.queue_name_prefix = "task2_blog_function_#{Rails.env}"
->>>>>>> origin/master
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.

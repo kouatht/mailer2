@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  resources :kblos do
-=======
-  # get 'blogs/new'
+  root to: 'kblos#index'
 
-  # get 'blogs/edit'
-  root to: 'blogs#index'
-  resources :blogs do
->>>>>>> origin/master
-  collection do
+  resources :kblos do
+    collection do
       post :confirm
     end
   end
+  
+end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+
