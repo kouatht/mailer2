@@ -1,5 +1,17 @@
 <%= form_with(model: @kblo, local: true,url: choose_new_or_edit) do |form| %>
- <div class="blog_title">
+<% if @kblo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @kblo.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @kblo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ <div class="kblo_title">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
