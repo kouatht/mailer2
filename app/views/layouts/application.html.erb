@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-<<<<<<< HEAD
-    <title>Phase2LargeTask</title>
-=======
-    <title>Task2BlogFunction</title>
->>>>>>> origin/master
-    <%= csrf_meta_tags %>
+    <title>つぶやき</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="home">
+      <p><%= link_to "ホーム", kblos_path, class: 'btn btn-default' %></p>
+      <div class="tw">
+        <%= link_to "つぶやく", new_kblo_path, class: 'btn btn-info' %>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <footer>
+      <div class="fwrapper">
+        <div class="footer">kblo</div>
+      </div>
+    </footer>
   </body>
 </html>

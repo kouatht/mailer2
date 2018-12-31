@@ -1,9 +1,8 @@
 {
-<<<<<<< HEAD
   "name": "phase2_large_task",
-=======
-  "name": "task2_blog_function",
->>>>>>> origin/master
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "3",
+    "jquery": "^3.3.1"
+  }
 }
