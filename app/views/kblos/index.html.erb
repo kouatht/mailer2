@@ -19,6 +19,9 @@
     <% @kblos.each do |kblo| %>
       <ul class="col-xs-12 col-md-6">
         <ul class="row">
+          <ul class="col-xs-12 col-md-12">
+            ユーザーID:<%= kblo.user_id %>
+          </ul>
           <ul class="col-xs-6 col-md-3">
             <%= kblo.content %>
           </ul>

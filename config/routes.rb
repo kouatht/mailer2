@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   root 'sessions#new'
 
   # root to: 'kblos#index'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 
 end
 

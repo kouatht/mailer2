@@ -1,3 +1,4 @@
+# the controller of blogs
 class KblosController < ApplicationController
   before_action :set_kblo,only:[:show,:edit,:update,:destroy]
   before_action :security,only:[:show,:edit,:new,:destroy]
@@ -7,7 +8,7 @@ class KblosController < ApplicationController
   end
 
   def create
-    @kblo=Kblo.new(kblo_params)
+    @kblo = current_user.kblos.build(kblo_params)
     if @kblo.save
       redirect_to kblos_path,notice:"つぶやきました！"
     else
@@ -24,7 +25,7 @@ class KblosController < ApplicationController
   end
 
   def confirm
-    @kblo=Kblo.new(kblo_params)
+    @kblo = current_user.kblos.build(kblo_params)
     render :new if @kblo.invalid?
   end
 
@@ -32,6 +33,7 @@ class KblosController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @kblo.id)
   end
 
   def update
