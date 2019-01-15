@@ -8,6 +8,9 @@ class KblosController < ApplicationController
   end
 
   def create
+    # 以下のbuildは
+    # @blog = Blog.new(blog_params)のあと
+    # @blog.user_id = current_user.idをすることと同じ
     @kblo = current_user.kblos.build(kblo_params)
     if @kblo.save
       redirect_to kblos_path,notice:"つぶやきました！"
@@ -33,7 +36,7 @@ class KblosController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(blog_id: @kblo.id)
+    @favorite = current_user.favorites.find_by(kblo_id: @kblo.id)
   end
 
   def update

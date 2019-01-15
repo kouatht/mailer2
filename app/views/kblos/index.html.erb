@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <ul class="row">
-  <img src="../../assets/bird.png">
+    <img src="../../assets/bird.png">
   </ul>
 </div>
 <h4 class="explain">~あなたの感じたことをいつでもつぶやけます~</h4>
@@ -17,25 +17,41 @@
   </ul>
   <ul class="row">
     <% @kblos.each do |kblo| %>
-      <ul class="col-xs-12 col-md-6">
-        <ul class="row">
-          <ul class="col-xs-12 col-md-12">
-            ユーザーID:<%= kblo.user_id %>
-          </ul>
-          <ul class="col-xs-6 col-md-3">
-            <%= kblo.content %>
-          </ul>
-          <ul class="col-xs-6 col-md-3">
-            <%= link_to '詳細を確認する', kblo_path(kblo.id) %>
-          </ul>
-          <ul class="col-xs-6 col-md-3">
-            <%= link_to "つぶやきを編集する", edit_kblo_path(kblo.id) %>
-          </ul>
-          <ul class="col-xs-6 col-md-3">
-            <%= link_to 'つぶやきを削除する', kblo_path(kblo.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %>
+      <% if kblo.user_id == current_user.id %>
+        <ul class="col-xs-12 col-md-6">
+          <ul class="row">
+            <ul class="col-xs-12 col-md-12">
+              投稿者:<%= kblo.user.name %>
+            </ul>
+            <ul class="col-xs-6 col-md-3">
+              <%= kblo.content %>
+            </ul>
+            <ul class="col-xs-6 col-md-3">
+              <%= link_to '詳細を確認する', kblo_path(kblo.id) %>
+            </ul>
+            <ul class="col-xs-6 col-md-3">
+              <%= link_to "つぶやきを編集する", edit_kblo_path(kblo.id) %>
+            </ul>
+            <ul class="col-xs-6 col-md-3">
+              <%= link_to 'つぶやきを削除する', kblo_path(kblo.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %>
+            </ul>
           </ul>
         </ul>
-      </ul>
+      <% else %>
+        <ul class="col-xs-12 col-md-6">
+          <ul class="row">
+            <ul class="col-xs-12 col-md-12">
+              投稿者:<%= kblo.user.name %>
+            </ul>
+            <ul class="col-xs-6">
+              <%= kblo.content %>
+            </ul>
+            <ul class="col-xs-6">
+              <%= link_to '詳細を確認する', kblo_path(kblo.id) %>
+            </ul>
+          </ul>
+        </ul>
+      <% end %>
     <% end %>
   </ul>
 </div>
