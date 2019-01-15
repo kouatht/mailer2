@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
   def create
-    favorite = current_user.favorites.create(kblo_id: params[:blog_id])
+    favorite = current_user.favorites.create(kblo_id: params[:kblo_id])
     redirect_to kblos_url, notice: "#{favorite.kblo.user.name}さんのブログをお気に入り登録しました"
   end
 
