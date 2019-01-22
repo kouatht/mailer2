@@ -13,6 +13,7 @@ class KblosController < ApplicationController
     # @blog.user_id = current_user.idをすることと同じ
     @kblo = current_user.kblos.build(kblo_params)
     if @kblo.save
+      CreateMailer.create_blog_mail(@kblo).deliver
       redirect_to kblos_path,notice:"つぶやきました！"
     else
       render 'new'
