@@ -56,12 +56,11 @@ class KblosController < ApplicationController
   private
 
   def kblo_params
-    params.require(:kblo).permit(:content)
+    params.require(:kblo).permit(:content, :image, :image_cache)
   end
 
   def set_kblo
     @kblo=Kblo.find(params[:id])
   end
-
 
 end

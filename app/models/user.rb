@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :kblos
   has_many :favorites, dependent: :destroy
   has_many :favorite_kblos, through: :favorites, source: :kblo
+  mount_uploader :image, ImageUploader
 end

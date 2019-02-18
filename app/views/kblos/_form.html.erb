@@ -1,21 +1,34 @@
 <%= form_with(model: @kblo, local: true,url: choose_new_or_edit) do |form| %>
 <% if @kblo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @kblo.errors.count %>件のエラーがあります。</h2>
-      <ul>
+  <div id="error_explanation">
+    <h2><%= @kblo.errors.count %>件のエラーがあります。</h2>
+    <ul>
 
       <% @kblo.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
- <div class="kblo_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    </ul>
   </div>
+<% end %>
+
+<div class="kblo_title">
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+</div>
+
+<div class="field">
+  <%= form.label :image %>
+  <!-- 確認画面から新規作成画面に戻った時に、 -->
+  <!-- アップロードした画像を表示させるための記述 -->
+  <%= image_tag(@kblo.image.url) if @kblo.image.url %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
+</div>
+
+<div class="actions">
   <%= form.submit %>
+</div>
+
 <% end %>
 
 <%= link_to 'つぶやき一覧画面に戻る', kblos_path %>

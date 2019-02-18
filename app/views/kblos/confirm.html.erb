@@ -2,12 +2,15 @@
 
 <%= form_with(model: @kblo, url: kblos_path, local: true) do |form| %>
   <%= form.hidden_field :content %>
+  <%= image_tag(@kblo.image.url) if @kblo.image.url %>
+  <%= form.hidden_field :image_cache %>
 
   <p>本文:<%= @kblo.content %></p>
   <%= form.submit  "登録する" %>
 <% end %>
 
 <%= form_with(model: @kblo, url: new_kblo_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :content %>
 
   <%= form.submit "もどる", name: 'back' %>
